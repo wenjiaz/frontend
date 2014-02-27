@@ -7,23 +7,15 @@ import org.joda.time.DateTime
 import scala.util.{Success, Failure, Try}
 import common.Logging
 import conf.Configuration
+import model.Config
 
-case class Config(
+case class ConfigUpdate(
   fronts: Map[String, Front],
-  collections: Map[String, Collection]
+  collections: Map[String, Config]
 )
 
 case class Front(
                   collections: List[String]
-                  )
-
-case class Collection(
-                  displayName: Option[String],
-                  apiQuery: Option[String],
-                 `type`: Option[String],
-                  href: Option[String],
-                  groups: Option[List[String]],
-                  uneditable: Option[Boolean]
                   )
 
 case class Block(
