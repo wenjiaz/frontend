@@ -1,11 +1,16 @@
 package tools
 
-import frontsapi.model.{Config, Collection, Front, Trail, Block}
+import frontsapi.model._
+import frontsapi.model.Block
+import frontsapi.model.Front
+import frontsapi.model.Trail
 import org.joda.time.DateTime
 import play.api.libs.json.{JsValue, Json}
 import services.S3FrontsApi
 import controllers.Identity
 import scala.util.Try
+import model.Config
+import scala.Some
 
 trait FaciaApiRead {
   def getSchema: Option[String]
@@ -22,12 +27,12 @@ trait FaciaApiWrite {
 }
 
 object FaciaApi extends FaciaApiRead with FaciaApiWrite {
-  implicit val collectionRead = Json.reads[Collection]
+  implicit val collectionRead = Json.reads[Config]
   implicit val frontRead = Json.reads[Front]
-  implicit val configRead = Json.reads[Config]
-  implicit val collectionWrite = Json.writes[Collection]
+  implicit val configRead = Json.reads[ConfigUpdate]
+  implicit val collectionWrite = Json.writes[Config]
   implicit val frontWrite= Json.writes[Front]
-  implicit val configWrite = Json.writes[Config]
+  implicit val configWrite = Json.writes[ConfigUpdate]
 
   implicit val trailRead = Json.reads[Trail]
   implicit val blockRead = Json.reads[Block]
