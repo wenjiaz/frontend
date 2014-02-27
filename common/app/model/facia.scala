@@ -15,11 +15,11 @@ case class Config(
 }
 
 object Config {
-  def apply(id: String): Config = Config(id, None, None, None, Nil, None)
+  def apply(id: String): Config = Config(id, None, None, None, Nil, None, None)
   def apply(id: String, contentApiQuery: Option[String], displayName: Option[String], `type`: Option[String]): Config
-    = Config(id, contentApiQuery, displayName, `type`, Nil, None)
+    = Config(id, contentApiQuery, displayName, `type`, Nil, None, None)
   def apply (id: String, displayName: Option[String]): Config
-    = Config(id, None, displayName, None, Nil, None)
+    = Config(id, None, displayName, None, Nil, None, None)
 }
 
 case class Collection(curated: Seq[Content],
