@@ -364,7 +364,12 @@ object Switches extends Collections {
   )
 
   val ABFrontsMissedCard = Switch("A/B Tests", "ab-fronts-missed-card",
-    "If this swith is on, run an ab test to add a `You might have missed` card to the News container.",
+    "If this swith is on, run an ab test to add a 'You might have missed' card to the News container.",
+    safeState = Off, sellByDate = new DateMidnight(2014, 3, 8)
+  )
+
+  val ABFrontsLiveCard = Switch("A/B Tests", "ab-fronts-live-card",
+    "If this swith is on, run an ab test to add a Live card to the news container.",
     safeState = Off, sellByDate = new DateMidnight(2014, 3, 8)
   )
 
@@ -509,6 +514,7 @@ object Switches extends Collections {
     ABFrontsLatestReviewsCard,
     ABFrontsCartoonCard,
     ABFrontsMissedCard,
+    ABFrontsLiveCard,
     HelveticaEasterEggSwitch
   )
 
